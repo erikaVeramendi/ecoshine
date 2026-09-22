@@ -1,0 +1,158 @@
+.heroContainer {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+  background: radial-gradient(ellipse at top center, rgba(16,185,129,0.08) 0%, transparent 60%);
+}
+
+.animationArea {
+  height: 280px;
+  width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.iconItem {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Bottle falls from top ── */
+.falling {
+  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.7));
+  animation: fall 1.5s cubic-bezier(0.35, 0, 0.65, 1) forwards;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-280px) rotate(-5deg); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { transform: translateY(0) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ── Shards flying ── */
+.shard {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform-origin: 0 0;
+  animation: flyOut 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  rotate: var(--angle);
+}
+
+@keyframes flyOut {
+  0%   { translate: 0 0; opacity: 1; scale: 1; }
+  100% { translate: 0 -120px; opacity: 0; scale: 0.3; }
+}
+
+/* ── Tile ── */
+.futuristicTile {
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.07);
+  box-shadow: 0 0 30px rgba(16,185,129,0.3), inset 0 0 20px rgba(16,185,129,0.08);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tileCell {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+  background: rgba(59, 130, 246, 0.07);
+}
+
+.tileShimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 35%, rgba(255,255,255,0.07) 50%, transparent 65%);
+  background-size: 200% 200%;
+  animation: shimmer 2.5s linear infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 200%; }
+  100% { background-position: -200% -200%; }
+}
+
+/* ── Brick Wall ── */
+.brickWall {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brickRow {
+  display: flex;
+  gap: 6px;
+}
+
+.brick {
+  width: 90px;
+  height: 50px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background: rgba(16,185,129,0.07);
+  box-shadow: 0 0 12px rgba(16,185,129,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: brickPop 0.4s ease-out both;
+}
+
+.brickInner {
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(59,130,246,0.35);
+  border-radius: 4px;
+  background: linear-gradient(135deg, transparent 40%, rgba(59,130,246,0.05) 50%, transparent 60%);
+  background-size: 200% 200%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes brickPop {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Shared scale-in ── */
+.scaleFadeIn {
+  animation: scaleFadeIn 0.7s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
+}
+
+@keyframes scaleFadeIn {
+  0%   { transform: scale(0.3); opacity: 0; filter: blur(6px); }
+  100% { transform: scale(1);   opacity: 1; filter: blur(0); }
+}
+
+/* ── Text reveal ── */
+.textContent {
+  max-width: 760px;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hidden  { opacity: 0; transform: translateY(20px); pointer-events: none; }
+.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Arrow bounce ── */
+.bounce { animation: bounce 2s ease-in-out infinite; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}

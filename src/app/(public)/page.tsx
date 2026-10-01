@@ -498,7 +498,7 @@ export default async function LandingPage() {
           </div>
           <div
             style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              alignItems: 'center', gap: '0.4rem',
               background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)',
               color: '#fbbf24', fontSize: '0.8rem', fontWeight: 500,
               padding: '0.3rem 0.8rem', borderRadius: '20px',

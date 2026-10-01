@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const ADMIN_COOKIE = 'ecoshineAdminSession';
 const ADMIN_LOGIN_PATH = '/admin/login';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Only apply to /admin paths

@@ -38,6 +38,12 @@
   border-right: 3px solid var(--color-primary);
 }
 
+.navLinkActive {
+  background-color: rgba(16,185,129,0.08) !important;
+  color: var(--color-primary) !important;
+  border-right: 3px solid var(--color-primary);
+}
+
 .mainContent {
   flex: 1;
   padding: 2rem;

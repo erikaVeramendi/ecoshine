@@ -1,16 +1,25 @@
+/* ==========================================
+   NAVBAR
+   ========================================== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  background: rgba(11, 17, 16, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  height: 72px;
+  background: rgba(11, 17, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
   display: flex;
   align-items: center;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbarScrolled {
+  background: rgba(11, 17, 16, 0.97);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .navContainer {
@@ -24,43 +33,164 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
+  z-index: 1100;
 }
 
 .logoIcon {
   color: var(--color-primary);
 }
 
+/* ---- Desktop Nav ---- */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .navLinks a {
   font-weight: 500;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  transition: color 0.3s;
+  transition: color 0.2s;
+  white-space: nowrap;
 }
 
-.navLinks a:hover, .navLinks a.activeLink {
+.navLinks a:hover,
+.navLinks a.activeLink {
   color: var(--color-primary);
 }
 
 .navLinks .ctaBtn {
   color: #fff;
+  font-size: 0.875rem;
+  padding: 0.6rem 1.2rem;
 }
 
-/* Public Page Content wrapper */
+/* ---- Hamburger ---- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  z-index: 1100;
+  line-height: 0;
+}
+
+.hamburger:hover {
+  color: var(--color-primary);
+  background: var(--glass-bg);
+}
+
+/* ---- Mobile Menu Overlay ---- */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1050;
+  backdrop-filter: blur(4px);
+}
+
+/* ---- Mobile Drawer ---- */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--color-bg-secondary);
+  border-left: 1px solid var(--glass-border);
+  z-index: 1060;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.2s, background 0.2s, padding-left 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+  color: var(--color-primary) !important;
+  background: rgba(16,185,129,0.06);
+  border-left-color: var(--color-primary);
+  padding-left: 2.25rem;
+}
+
+.mobileLinkActive {
+  color: var(--color-primary);
+}
+
+.mobileCta {
+  margin: 1.5rem 1.75rem 0;
+  justify-content: center;
+}
+
+.mobileSocials {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+  margin-top: auto;
+  border-top: 1px solid var(--glass-border);
+}
+
+.mobileSocials a {
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+  line-height: 0;
+}
+
+.mobileSocials a:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================
+   PUBLIC PAGE WRAPPER
+   ========================================== */
 .pageWrapper {
-  margin-top: 80px;
-  min-height: calc(100vh - 80px);
+  margin-top: 72px;
+  min-height: calc(100vh - 72px);
 }
 
-/* Landing specific */
+/* ==========================================
+   LEGACY CLASSES (kept for backward compat)
+   ========================================== */
 .heroSection {
   min-height: 80vh;
   display: flex;
@@ -83,15 +213,157 @@
 
 .gridSection {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin: 4rem 0;
 }
 
+/* ==========================================
+   FOOTER
+   ========================================== */
 .footer {
   border-top: 1px solid var(--glass-border);
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
   margin-top: 4rem;
-  text-align: center;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footerDesc {
   color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footerHeading {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLinks a {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: var(--color-primary);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--color-text-muted);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  line-height: 0;
+}
+
+.socialLink:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(16,185,129,0.08);
+}
+
+.footerBottom {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footerBottomText {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.mvpBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================== */
+@media (max-width: 900px) {
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    text-align: center;
+  }
 }

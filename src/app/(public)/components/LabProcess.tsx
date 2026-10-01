@@ -4,12 +4,12 @@ import styles from './publicComponents.module.css';
 import { FlaskConical, Settings, Boxes, Square, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const steps = [
-  { id: 1, name: 'Recepción del vidrio', icon: FlaskConical, desc: 'Acopio y clasificación del vidrio. Integración con asociaciones de recolectores locales para dignificar su trabajo.' },
-  { id: 2, name: 'Trituración', icon: Settings, desc: 'Procesamiento mecánico mecánico sin fundición para reducir el vidrio a polvo y escamas, ahorrando enormes cantidades de energía.' },
-  { id: 3, name: 'Mezcla de materiales', icon: Boxes, desc: 'Las escamas de vidrio se combinan con aglomerantes especiales de baja huella de carbono, creando una matriz resistente.' },
-  { id: 4, name: 'Moldeo', icon: Square, desc: 'La matriz se vierte en moldes. Al no necesitar cocción en hornos, evitamos toneladas de emisiones de CO2.' },
-  { id: 5, name: 'Pulido', icon: Sparkles, desc: 'Desbastamos la capa superficial para descubrir los destellos cristalinos del vidrio reciclado en el fondo.' },
-  { id: 6, name: 'Baldosa terminada', icon: CheckCircle2, desc: 'Una pieza única, estética, altamente resistente y verdaderamente sostenible, lista para revolucionar espacios.' },
+  { id: 1, name: 'Recepción del vidrio', icon: FlaskConical, desc: 'Acopio y recolección de vidrio posconsumo desde fuentes diversas.' },
+  { id: 2, name: 'Trituración', icon: Settings, desc: 'Molienda mediante un servicio especializado externo para alcanzar la granulometría precisa.' },
+  { id: 3, name: 'Mezcla de materiales', icon: Boxes, desc: 'El vidrio triturado se integra cuidadosamente con cemento, agua, marmolina y componentes.' },
+  { id: 4, name: 'Moldeo', icon: Square, desc: 'La matriz es vertida en moldes con vibrado para eliminar burbujas.' },
+  { id: 5, name: 'Curado', icon: Sparkles, desc: 'Reposo controlado a temperatura ambiente garantizando el fraguado óptimo.' },
+  { id: 6, name: 'Acabado', icon: CheckCircle2, desc: 'Pulido final de superficie para exponer el brillo característico del vidrio reciclado.' },
 ];
 
 export default function LabProcess() {

@@ -91,10 +91,16 @@ export default function HeroAnimation() {
       </div>
 
       <div className={`${styles.textContent} ${(phase === 'wall' || phase === 'text') ? styles.visible : styles.hidden}`}>
-        <h1>Lo que hoy es residuo, mañana es <span className="glow-text" style={{ fontSize: 'inherit' }}>construcción sostenible</span></h1>
-        <p>EcoShine convierte envases de vidrio en baldosas premium para arquitectura y decoración. Sin hornos. Sin CO₂.</p>
-        <div style={{ marginTop: '2rem' }}>
-          <ArrowDown className={styles.bounce} size={32} color="var(--color-primary)" />
+        <h1>Del vidrio que descartamos al <span className="glow-text" style={{ fontSize: 'inherit' }}>diseño que construimos</span></h1>
+        <p>EcoShine transforma vidrio posconsumo en baldosas decorativas premium para arquitectura y diseño interior.</p>
+        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="/producto" className="btn-premium" style={{ fontSize: '0.875rem' }}>Ver producto</a>
+          <a href="/proceso" style={{ 
+            display: 'inline-flex', alignItems: 'center', 
+            padding: '0.8rem 1.5rem', borderRadius: '8px', 
+            border: '1px solid rgba(255,255,255,0.2)', color: '#fff', fontSize: '0.875rem',
+            textDecoration: 'none'
+          }}>Descubre el proceso</a>
         </div>
       </div>
     </div>

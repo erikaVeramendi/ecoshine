@@ -14,8 +14,19 @@ export default function ImpactSimulator() {
   return (
     <div className={styles.interactiveSection}>
       <h2>Simulador de Impacto</h2>
-      <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '1rem auto 0' }}>No es una calculadora financiera. Es una experiencia de concientización sobre cuánto material útil botamos.</p>
-      
+      <div style={{
+        background: 'rgba(234, 179, 8, 0.1)', border: '1px solid rgba(234, 179, 8, 0.3)',
+        color: '#facc15', padding: '0.8rem 1.2rem', borderRadius: '8px',
+        maxWidth: '700px', margin: '1.5rem auto', fontSize: '0.85rem', textAlign: 'left',
+        display: 'flex', gap: '0.8rem', alignItems: 'flex-start'
+      }}>
+        <div style={{ fontSize: '1.2rem' }}>⚠️</div>
+        <p style={{ margin: 0 }}>
+          <strong>Estimación Educativa:</strong> Esta calculadora es 100% conceptual. Su objetivo es
+          ilustrar la cantidad de material útil que desperdiciamos, y no representa resultados reales
+          validados de EcoShine, ya que estamos en etapa de MVP.
+        </p>
+      </div>
       <div className={styles.simContainer}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
           

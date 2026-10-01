@@ -52,10 +52,11 @@ export default function UnetePage() {
               <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--color-text-muted)' }}>¿Qué tipo de aliado eres?</label>
               <select name="type" required className="input-premium" style={{ appearance: 'none' }}>
                 <option value="" disabled selected>Selecciona una opción</option>
-                <option value="Arquitecto/Constructor">Arquitecto o Constructora</option>
-                <option value="Empresa/Institución">Empresa o Institución</option>
-                <option value="Inversor">Inversor / Fondo de Impacto</option>
-                <option value="Persona natural">Persona particular (voluntario/cliente)</option>
+                <option value="Cliente">Soy potencial cliente (Comprar/Conocer producto)</option>
+                <option value="Ecorecolector">Soy ecorecolector (Proveer vidrio)</option>
+                <option value="Empresa/Institución">Soy empresa o institución (Ser aliado)</option>
+                <option value="Información">Quiero conocer el proyecto (Recibir información)</option>
+                <option value="Otro">Otro</option>
               </select>
             </div>
             
